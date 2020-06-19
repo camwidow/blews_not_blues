@@ -35,12 +35,18 @@ st.subheader("Enter a headline below and click 'classify' predict its category (
 
 st.write('For example:')
 
+
+
+
 titles = ['Walmart Says It Will No Longer Lock Up African-American Beauty Products',"13 Investigates: 'No need for disparity' in African American arrest rates","Top Tulsa police officer: 'We're shooting African Americans about 24 percent less than we probably ought to be",'Timberwolves president Gersson Rosas hopeful for more front-office diversity in pro sports',
 'African American owned businesses hurt most by the lockdowns',
 'Local Entrepreneurs Aim To Create African American Business Listing']
 dff =pd.DataFrame(data = titles, columns = ['Recent Black headlines from June 10th'])
 #st.write(dff)
 st.table(dff)
+
+
+#Example:
 
 if st.button('Click button to generate sentiment score!'):
     #PREPROCESSING
@@ -85,25 +91,6 @@ if st.button('Click button to generate sentiment score!'):
 st.header('Now you try!')
 st.write('Type an article headline and click "classify"!')
 
-#st.write('Upload a csv file with news headlines in one column and choose a news category')
-#uploaded_file = st.sidebar.file_uploader("Upload News Headlines", type=['csv'])
-
-# if uploaded_file is not None:
-#     x = pd.read_csv(uploaded_file)
-#     x = x.iloc[:,0].values
-# else:
-#     print('Upload News Article')
-
-
-
-# sugcat = add_selectbox = st.sidebar.selectbox(
-#     'Choose a news category',
-#     ('Business', 'General', 'Sports'))
-
-
-#st.write('Articles for the', sugcat, 'category')
-
-
 #User input
 
 x = st.text_input('Article Title')
@@ -145,3 +132,23 @@ if st.button('classify'):
         for i in range(len(predsent)):
             st.write(str(j[i]))
             st.write(predcat[i],'|',predsent[i])
+
+#CSV Upload
+
+#st.write('Upload a csv file with news headlines in one column and choose a news category')
+#uploaded_file = st.sidebar.file_uploader("Upload News Headlines", type=['csv'])
+
+# if uploaded_file is not None:
+#     x = pd.read_csv(uploaded_file)
+#     x = x.iloc[:,0].values
+# else:
+#     print('Upload News Article')
+
+
+
+# sugcat = add_selectbox = st.sidebar.selectbox(
+#     'Choose a news category',
+#     ('Business', 'General', 'Sports'))
+
+
+#st.write('Articles for the', sugcat, 'category')
