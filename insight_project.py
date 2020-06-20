@@ -27,11 +27,11 @@ sent_model = load_sent()
 
 
 
-st.title('Good Blews, not Blues')
+st.title('Good [Bl]ews, not Blues')
 
-st.header('Streamlining relevant, positive, Black news headlines')
+st.header('Streamlining relevant, positive Black news')
 
-st.subheader("Enter a headline below and click 'classify' predict its category (General,Sports, Business) and sentiment score!")
+st.subheader("Enter a headline below and click 'classify' to predict its category (General,Sports, Business) and sentiment!")
 
 st.write('For example:')
 
@@ -51,9 +51,7 @@ st.table(dff)
 if st.button('Click button to generate sentiment score!'):
     #PREPROCESSING
 
-    x =standardize_text(dff, 'Recent Black headlines from June 10th') #STRING
-    x = x['Recent Black headlines from June 10th']
-    pred = cat_model.predict(x)
+    pred = cat_model.predict(dff['Recent Black headlines from June 10th'])
     st.write('Are predicted as such:')
     predictions = []
     for i in pred:
@@ -65,7 +63,7 @@ if st.button('Click button to generate sentiment score!'):
             statement = ('Sports')
         predictions.append(statement)
 
-    pred = sent_model.predict(x)
+    pred = sent_model.predict(dff['Recent Black headlines from June 10th'])
 
     sents = []
 
@@ -103,16 +101,16 @@ if st.button('classify'):
         #break
     else:
 
-        cat = st.write(category_model.predict(pd.Series(x)))
+        cat = cat_model.predict(pd.Series(x))
 
         predcat = []
         for i in cat:
             if i == 0:
-                statement = ('Category: Business')
+                statement = ('Category: Sports')
             elif i == 1:
                 statement = ('Category: General')
             elif i == 2:
-                statement = ('Category: Sports')
+                statement = ('Category: Business')
             predcat.append(statement)
 
 
@@ -128,9 +126,10 @@ if st.button('classify'):
             elif i == 2:
                 statement = ('Sentiment: Positive')
             predsent.append(statement)
-        j = dff.values
+
+        j = x
+        st.write(j)
         for i in range(len(predsent)):
-            st.write(str(j[i]))
             st.write(predcat[i],'|',predsent[i])
 
 #CSV Upload
