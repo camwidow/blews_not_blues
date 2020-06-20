@@ -18,7 +18,7 @@ Streamlining access to positive Black news can be one way to increase positive r
 The purpose of this project is to use Machine Learning to take as input, an article headline, and predict the category and sentiment of Black news articles. The web application can be found <a href="http://blewsnotblues.com/">`[here]`</a> and further details about the project can be viewed <a href="http://camslides.blewsnotblues.com/">`[here]`</a>  
 
 In this repository are the following:
--Notebook used to collect news headlines 
--Associated labeled dataset 
--Notebook for preprocessing and using NLP to classify article headlines
--Resulting pipelines
+- Notebook used to collect news headlines 
+- Associated labeled dataset 
+- Notebook for preprocessing and using NLP to classify article headlines
+- Resulting pipelines
